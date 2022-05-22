@@ -20,7 +20,7 @@ import static hello.querydsl.entity.QMember.member;
 import static hello.querydsl.entity.QTeam.team;
 import static org.springframework.util.StringUtils.hasText;
 
-public class MemberRepositoryImpl implements MemberRepositoryCustom{
+public class MemberRepositoryImpl implements MemberRepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     public MemberRepositoryImpl(EntityManager em) {

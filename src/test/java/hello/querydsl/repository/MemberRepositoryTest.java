@@ -3,6 +3,7 @@ package hello.querydsl.repository;
 import hello.querydsl.dto.MemberSearchCondition;
 import hello.querydsl.dto.MemberTeamDto;
 import hello.querydsl.entity.Member;
+import hello.querydsl.entity.QMember;
 import hello.querydsl.entity.Team;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,4 +62,15 @@ class MemberRepositoryTest {
             System.out.println("memberTeamDto = " + memberTeamDto);
         }
     }
+
+    @Test
+    void querydslPredicateExecutorTest() {
+        QMember member = QMember.member;
+        Iterable<Member> members = memberRepository.findAll(member.age.goe(30));
+
+        for (Member member1 : members) {
+            System.out.println("member1 = " + member1);
+        }
+    }
+
 }
